@@ -1,21 +1,22 @@
-    using System;
-    using System.Collections.Generic; // Necesario para List<T>
+using System;
+using System.Collections.Generic; // Required for List<T>
 
-    public class Resume
+public class Resume
+{
+    // Member variables for resume details
+    public string _name = "";
+    public List<Job> _jobs = new List<Job>(); // Initialize the list here
+
+    // Method to display the resume details
+    public void Display()
     {
-        public string _name = "";
-        public List<Job> _jobs = new List<Job>(); // Inicializar la lista aquí
+        Console.WriteLine($"Name: {_name}");
+        Console.WriteLine("Jobs:");
 
-        public void Display()
+        // Iterate through each job and display its details
+        foreach (Job job in _jobs)
         {
-            Console.WriteLine($"Name: {_name}");
-            Console.WriteLine("Jobs:");
-
-            foreach (Job job in _jobs)
-            {
-                // Esto llama al método Display() de la clase Job
-                job.Display();
-            }
+            job.Display(); // Calls the Display() method from the Job class
         }
     }
-    
+}
