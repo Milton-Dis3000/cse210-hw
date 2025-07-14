@@ -1,0 +1,5 @@
+Explanation of Version Control
+
+What I understood is that version control is an essential system that records all changes in our code files and software projects over time. It's like a detailed history for us, programmers: it saves who did what and when. This is great because if I need to go back to an older version of my code or see how something was before, I can easily do so.
+
+For me, the biggest benefit is efficient collaboration. I understood that if several programmers are working on the same project, version control allows us to do so without overwriting each other's work. Each person works on their part, and then we merge everything in an organized way. For example, if I add a feature and a teammate fixes a bug, we can work in parallel. When we finish, we use git push to send our changes to GitHub, and the system helps integrate everything, keeping the software project stable.
