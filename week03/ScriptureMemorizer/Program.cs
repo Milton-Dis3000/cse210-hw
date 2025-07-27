@@ -4,6 +4,12 @@ class Program
 {
     static void Main(string[] args)
     {
+        // Exceeding Requirements:
+        // The HideRandomWords method in the Scripture class has been enhanced
+        // to only select and hide words that are not already hidden.
+        // This provides a more effective memorization experience as the user
+        // is always challenged with new words to hide.
+
         // Define the scripture reference.
         // You can choose between a single verse or a verse range.
         Reference reference = new Reference("John", 3, 16);
