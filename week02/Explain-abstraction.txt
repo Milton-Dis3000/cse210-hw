@@ -1,0 +1,51 @@
+Student: Milthon Sigcha
+
+W02 Assignment: Explain Abstraction
+1. Meaning
+
+Abstraction is a core concept in object-oriented programming. It's about showing only the essential information while hiding the complex details of how something works internally. Think of a light switch: you know that pressing it turns the light on or off. You don't need to know how electricity flows through the wires or how the circuit works. Abstraction applies this same idea to code: it allows us to use a component by focusing on "what it does" (its function), without worrying about "how it does it" (its internal, complex details). It's a way to simplify things.
+
+2. Benefits
+
+Applying abstraction in a program offers several significant advantages:
+
+Simplifies Code: By hiding complex details, the code becomes easier to understand and manage. Each part of the program has a clear responsibility and doesn't concern itself with the intricacies of other parts.
+
+Facilitates Maintenance: If the internal way a component performs its task changes, the rest of the program doesn't need to be modified, as long as the way to interact with that component (its public methods) remains the same. This reduces errors and simplifies updates.
+
+Promotes Code Reusability: A well-abstracted component is like a specialized tool. Once created, it can be used in different parts of the same program or even in other projects, saving development time and effort.
+
+3. Application
+
+In the Journal program project, abstraction was implemented through our main classes:
+
+The Entry class represents a single journal entry. It holds the date, the prompt, and the response. Other parts of the program simply ask an Entry object to "display itself" (entry.Display()), without needing to know how it internally stores or formats its data.
+
+The PromptGenerator class is responsible for providing random prompts. The main program simply requests a prompt from this class (promptGenerator.GetRandomPrompt()), without worrying about where the prompts come from or how one is randomly selected.
+
+The Journal class manages the collection of all entries. It offers methods to add, display, save, and load entries. The main program interacts with the Journal through these methods, without having to directly manipulate the internal list of entries.
+
+5. Code
+
+This code snippet from Program.cs demonstrates abstraction, as it interacts with the Journal and PromptGenerator classes through their public methods, without accessing their internal details:
+
+// Create the prompt generator.
+PromptGenerator promptGenerator = new PromptGenerator();
+
+// Get a random prompt without knowing how it's generated internally.
+string randomPrompt = promptGenerator.GetRandomPrompt();
+
+// Create the main journal object.
+Journal myJournal = new Journal();
+
+// Create a new entry and assign its data.
+Entry newEntry = new Entry();
+newEntry._date = DateTime.Now.ToShortDateString();
+newEntry._promptText = randomPrompt;
+newEntry._entryText = "Today I learned something very interesting.";
+
+// Add the entry to the journal using a public method, hiding internal list manipulation.
+myJournal.AddEntry(newEntry);
+
+// Display all journal entries, delegating the task to the Journal class.
+myJournal.DisplayAll();
