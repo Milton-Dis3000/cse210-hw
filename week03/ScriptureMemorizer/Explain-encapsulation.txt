@@ -1,5 +1,6 @@
 Explain Encapsulation
 
+
 I understand that encapsulation means each part of my program is like a closed box with its own contents inside. 
 
 What is Encapsulation?

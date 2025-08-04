@@ -1,4 +1,5 @@
 // Represents a customer's address.
+
 public class Address
 {
     // Private member variables to encapsulate the address data.
