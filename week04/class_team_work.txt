@@ -1,69 +1,68 @@
 
+STUDENT: Milthon Sigcha
 
+---------------------
 YouTube Video Program
-
+---------------------
 
 classDiagram
-    class Video {
-        -string _title
-        -string _author
-        -int _lengthSeconds
-        -List~Comment~ _comments
-        +int GetNumberOfComments()
-    }
+    class Video {
+        -string _title
+        -string _author
+        -int _lengthSeconds
+        -List~Comment~ _comments
+        +int GetNumberOfComments()
+    }
 
-    class Comment {
-        -string _commenterName
-        -string _commentText
-    }
+    class Comment {
+        -string _commenterName
+        -string _commentText
+    }
 
-    Video "1" *-- "*" Comment : contains
-
-
+    Video "1" -- "" Comment : contains
 
 
 
 
 
 
-
-
-
-
+-----------------------
 Online Ordering Program
+-----------------------
 
-classDiagram 
+classDiagram 
 
-    class Order {
-        -List~Product~ _products
-        -Customer _customer
-        +decimal CalculateTotalCost()
-        +string GetPackingLabel()
-        +string GetShippingLabel()
-    }
+    class Order {
+        -List~Product~ _products
+        -Customer _customer
+        +decimal CalculateTotalCost()
+        +string GetPackingLabel()
+        +string GetShippingLabel()
+    }
 
-    class Product {
-        -string _name
-        -string _productId
-        -decimal _price
-        -int _quantity
-        +decimal GetTotalCost()
-    }
+    class Product {
+        -string _name
+        -string _productId
+        -decimal _price
+        -int _quantity
+        +decimal GetTotalCost()
+    }
 
-    class Customer {
-        -string _name
-        -Address _address
-    }
+    class Customer {
+        -string _name
+        -Address _address
+        +bool IsInUSA()
+    }
 
-    class Address {
-        -string _streetAddress
-        -string _city
-        -string _stateProvince
-        -string _country
-        +bool IsInUSA()
-        +string GetFullAddressString()
-    }
+    class Address {
+        -string _streetAddress
+        -string _city
+        -string _stateProvince
+        -string _country
+        +bool IsInUSA()
+        +string GetFullAddressString()
+    }
 
-    Order "1" *-- "*" Product : contains
-    Order "1" *-- "1" Customer : has
-    Customer "1" *-- "1" Address : lives at
+    Order "1" -- "" Product : contains
+    Order "1" *-- "1" Customer : has
+    Customer "1" *-- "1" Address : lives at

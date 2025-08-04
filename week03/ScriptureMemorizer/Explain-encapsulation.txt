@@ -1,0 +1,55 @@
+Explain Encapsulation
+
+I understand that encapsulation means each part of my program is like a closed box with its own contents inside. 
+
+What is Encapsulation?
+Encapsulation is the principle where data (what a class "has") and the actions or behaviors performed with that data (what that class "does") are bundled together within a single "box," which we call a class. The main idea is to hide the internal details of this box. From the outside, other parts of the program cannot directly see or manipulate what's inside. They can only interact with the box using the public "buttons" or "doors" that the class itself decides to offer.
+
+Why is it Important (Benefits)?
+Encapsulation is fundamental for several reasons. First, it offers protection. It prevents other parts of the code from manipulating a class's internal data in an unintended way that could cause errors. Only the class itself knows how to manage its data safely. Second, it provides great flexibility and simplifies changes. If one day I decide to change how something works inside a class (for example, how a piece of data is stored or how an internal calculation is performed), other parts of the program using that class are not affected and do not break. Since they only interact with the public "buttons" that the class offers, they don't need to care about what happens internally, as long as the buttons continue to perform their function. This makes my code much easier to fix, update, or improve without causing unexpected problems elsewhere.
+
+Where Do We Use It in Our Program?
+A very clear example of how I used encapsulation is in my Word class in our Scripture Memorizer program. My Word class stores two main things: the word's text (_text) and whether it is hidden or not (_isHidden). Both are private, meaning they are "inside their box" and only the Word class can directly see and modify them. To interact with a Word object, other classes (like Scripture) do not directly touch _isHidden. Instead, they use the public "buttons" that Word offers: Hide() to hide it, IsHidden() to check if it's hidden, and GetDisplayText() to get the text to display (either the word or underscores). Thus, my Word class is solely responsible for managing its own state and behavior.
+
+Code Example (Word Class):
+
+public class Word
+{
+    // Internal data, only the Word class directly sees it
+    private string _text;
+    private bool _isHidden;
+
+    // Constructor: Creates a new word, visible by default
+    public Word(string text)
+    {
+        _text = text;
+        _isHidden = false;
+    }
+
+    // Public button to hide the word
+    public void Hide()
+    {
+        _isHidden = true;
+    }
+
+    // Public button to check if the word is hidden
+    public bool IsHidden()
+    {
+        return _isHidden;
+    }
+
+    // Public button to get the text to display (word or underscores)
+    public string GetDisplayText()
+    {
+        if (_isHidden)
+        {
+            return new string('_', _text.Length); // Displays underscores
+        }
+        else
+        {
+            return _text; // Displays the word
+        }
+    }
+}
+
+In summary, for me, encapsulation is fundamental because it allows me to have more secure code that is easier to understand and much simpler to change in the future. Each "box" manages itself, which greatly simplifies the work in a software project.
