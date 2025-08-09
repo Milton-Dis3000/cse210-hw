@@ -1,10 +1,25 @@
 using System;
+using System.Collections.Generic;
 
 class Program
 {
     static void Main(string[] args)
     {
+        // EXCEEDING REQUIREMENTS:
+        // I have exceeded the core requirements by adding a feature that tracks
+        // how many times the user has completed each mindfulness activity.
+        // When the user quits the program, it displays a summary of the sessions
+        // they have completed. This provides a simple way to track usage
+        // without adding complex logging or file management.
+
         string choice = "";
+        Dictionary<string, int> activityCount = new Dictionary<string, int>
+        {
+            {"Breathing", 0},
+            {"Reflecting", 0},
+            {"Listing", 0}
+        };
+
         while (choice != "4")
         {
             Console.Clear();
@@ -21,14 +36,17 @@ class Program
                 case "1":
                     BreathingActivity breathingActivity = new BreathingActivity();
                     breathingActivity.Run();
+                    activityCount["Breathing"]++;
                     break;
                 case "2":
                     ReflectingActivity reflectingActivity = new ReflectingActivity();
                     reflectingActivity.Run();
+                    activityCount["Reflecting"]++;
                     break;
                 case "3":
                     ListingActivity listingActivity = new ListingActivity();
                     listingActivity.Run();
+                    activityCount["Listing"]++;
                     break;
                 case "4":
                     // The program will exit the loop.
@@ -38,6 +56,11 @@ class Program
                     break;
             }
         }
-        Console.WriteLine("Thank you for participating!");
+        Console.WriteLine();
+        Console.WriteLine("Thank you for participating! Here is a summary of your activities:");
+        Console.WriteLine($"  - Breathing Activity: {activityCount["Breathing"]} sessions");
+        Console.WriteLine($"  - Reflecting Activity: {activityCount["Reflecting"]} sessions");
+        Console.WriteLine($"  - Listing Activity: {activityCount["Listing"]} sessions");
+        Console.WriteLine();
     }
 }
