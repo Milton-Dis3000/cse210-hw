@@ -1,0 +1,19 @@
+----------------------------
+Explaining Inheritance
+----------------------------
+
+What is inheritance and why is it important?
+
+I understand that inheritance is one of the most important concepts in programming because it allows me to create new classes that take on the characteristics and actions of a class that already exists. It's like a more specific class, which we call the derived or "child" class, can reuse what a more general class, the base or "parent" class, already has.
+
+A key benefit of inheritance is code reusability. It allows you to define common attributes and methods just once in the base class. This way, if a correction or improvement is needed, you only have to modify the code in one place, and the change will automatically apply to all derived classes. This makes the code easier to maintain, cleaner, and less prone to errors.
+
+A clear example of inheritance can be found in our Mindfulness project. We created a base Activity class that defines shared functionalities, such as showing a starting message or a spinning animation. Then, we created derived classes like BreathingActivity and ReflectingActivity that inherit these behaviors.
+
+Here's the constructor for the BreathingActivity class, which uses the base keyword to inherit the base class's constructor and reuse its logic to set the activity's name and description:
+
+public BreathingActivity() : base("Breathing", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.")
+{
+}
+
+By using inheritance, we ensure that all activities share a consistent structure without having to duplicate the constructor's code in each one of them.
