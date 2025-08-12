@@ -1,0 +1,3 @@
+560
+EternalGoal:Practice C# 30 minutes daily,Practice coding in C# every day,10
+ChecklistGoal:Exercise 10 times,Complete 10 workout sessions,50,500,10,1
