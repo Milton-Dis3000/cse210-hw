@@ -1,0 +1,34 @@
+---------------------
+Explain Polymorphism
+----------------------
+
+I understand that polymorphism is the ability of an object to take on many forms. It's a principle of object-oriented programming that allows us to treat objects of different, but related, classes as if they were of the same base type. The magic is that even though the program handles them uniformly, each object executes its own specific logic.
+
+-------------
+A Key Benefit
+-------------
+The biggest benefit of polymorphism is that it makes code much more flexible and easy to maintain. Instead of having to write different code for each goal type or use many if/else statements, we can just call the same method on each one. The program automatically knows what action to take. This greatly simplifies the code and makes it more scalable, as you can add new classes in the future without changing the core logic.
+
+--------------------------
+Application in Our Program
+--------------------------
+
+A clear example of polymorphism in our "Eternal Quest" program is found in the GoalManager class. This class holds a List<Goal> that can store different types of goals at the same time, such as SimpleGoal, EternalGoal, and ChecklistGoal, because they all inherit from the base Goal class.
+
+When we want to record an event for a goal, we don't need to know its exact type. We simply iterate over the list and call the RecordEvent() method on each one. Polymorphism then takes care of executing the correct behavior for that specific class.
+
+------------------------------------------------
+Here is the code snippet that demonstrates this:
+------------------------------------------------
+
+// This code iterates through a list of 'Goal' objects.
+// This is polymorphism in action.
+foreach (Goal goal in _goals)
+{
+    // The specific 'RecordEvent' method for each goal type is called.
+    // The program knows whether to complete the goal, add points, etc.,
+    // without needing to know the object's exact type.
+    goal.RecordEvent();
+}
+
+In this code, the goal variable takes the "form" of each goal type in the list. For example, if the first item is a SimpleGoal, it runs that class's RecordEvent. If the next one is an EternalGoal, it runs that class's RecordEvent, and so on. This allows us to use a single line of code that works for all goal types.
